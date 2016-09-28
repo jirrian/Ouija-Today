@@ -11,7 +11,7 @@ public class menu : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		StartCoroutine(fadeOutBlack(menuTrigger));
-	
+	   
 	}
 
     // fade from black
@@ -34,7 +34,9 @@ public class menu : MonoBehaviour {
         // show pop up
         popUpCanvas.GetComponent<Canvas>().enabled = true;
 
-        // stop camera/planchette movement
+        // stop camera/planchette movement FIX THIS
+        finderMovement finderMovement = transform.GetComponent<finderMovement>();
+        finderMovement.pause = true;
 
     }
 }

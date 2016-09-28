@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class start : MonoBehaviour {
 
+    void Start(){
+        foreach(Transform elem in transform){
+            StartCoroutine(fadeInText(elem.GetComponent<Text>()));
+        }
+    }
+
 	// fade text away and load next scene
 	public void loadGame(){
 		// fade out text
@@ -27,6 +33,20 @@ public class start : MonoBehaviour {
 
         //load scene
 		SceneManager.LoadScene("Game");
+     }
+
+    // fade in text
+    IEnumerator fadeInText(Text text){
+       float f = 0f;
+       while(f < 1f) {
+            Color c = text.color;
+            c.a = f;
+            text.color = c;
+            f += 0.1f;
+            yield return new WaitForSeconds(.1f);
+        }
+        text.enabled = true;
+
      }
 
 }

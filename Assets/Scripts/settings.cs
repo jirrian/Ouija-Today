@@ -18,6 +18,8 @@ public class settings : MonoBehaviour {
 		// hide pop up canvas
 		transform.GetComponent<Canvas>().enabled = false;
 
-		// allow camera/planchette movement
+		// allow camera/planchette movement FIX THIS
+		finderMovement finderMovement = GetComponent<finderMovement>();
+        finderMovement.pause = false;
 	}
 }
