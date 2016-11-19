@@ -8,6 +8,8 @@ public class menu : MonoBehaviour {
 	public Button menuTrigger;
     public Canvas popUpCanvas;
 
+    public finderMovement fm;
+
 	// Use this for initialization
 	void Start () {
 		StartCoroutine(fadeOutBlack(menuTrigger));
@@ -34,9 +36,8 @@ public class menu : MonoBehaviour {
         // show pop up
         popUpCanvas.GetComponent<Canvas>().enabled = true;
 
-        // stop camera/planchette movement FIX THIS
-        finderMovement finderMovement = transform.GetComponent<finderMovement>();
-        finderMovement.pause = true;
+        // stop camera/planchette movement
+        fm.pause = true;
 
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class settings : MonoBehaviour {
 
+	public finderMovement fm;
+	public Camera mainCamera;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -18,8 +21,13 @@ public class settings : MonoBehaviour {
 		// hide pop up canvas
 		transform.GetComponent<Canvas>().enabled = false;
 
-		// allow camera/planchette movement FIX THIS
-		finderMovement finderMovement = GetComponent<finderMovement>();
-        finderMovement.pause = false;
+		// allow camera/planchette movement
+        fm.pause = false;
+	}
+
+	public void recenter(){
+		mainCamera.transform.position = new Vector3(5.96f, 1.0f, -10.0f);
+
+		closeSettings();
 	}
 }
